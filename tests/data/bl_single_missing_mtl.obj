@@ -1,0 +1,7 @@
+mtllib does_not_exist.mtl
+o TriangleMissingMTL
+v 0.0 0.0 0.0
+v 1.0 0.0 0.0
+v 0.0 1.0 0.0
+usemtl MissingMat
+f 1 2 3

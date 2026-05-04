@@ -1,0 +1,10 @@
+o ValidTriangle
+v 0.0 0.0 0.0
+v 1.0 0.0 0.0
+v 0.5 1.0 0.0
+f 1 2 3
+
+o BrokenObject
+v 2.0 0.0 0.0
+f 999 1000 1001
+f not_a_face garbage @@@@
