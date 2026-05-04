@@ -1,0 +1,24 @@
+name: Group 5 OBJ Import Tests
+
+on:
+  push:
+    paths:
+      - 'tests/python/projectManualTests.py'
+  pull_request:
+    paths:
+      - 'tests/python/projectManualTests.py'
+
+jobs:
+  obj-import-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Blender
+        run: |
+          sudo snap install blender --classic
+
+      - name: Run OBJ Import Test Suite
+        run: |
+          blender --background --python tests/python/projectManualTests.py
