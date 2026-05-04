@@ -1,1 +1,37 @@
+name: Blender CI Tests
 
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+      steps:
+        - uses: actions/checkout@v4
+
+        - name: Install dependencies (Linux only)
+          if: runner.os == 'Linux'
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y build-essential cmake
+
+        - name: Install dependencies (Windows only)
+          if: runner.os == 'Windows'
+          run: make update
+
+        - name: Build
+          run: make
+
+        - name: Run tests
+          run: ctest -C Release
+        
