@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+# hi
+
 """
 blender -b --factory-startup --python tests/python/bl_animation_fcurves.py -- --testdir tests/files/animation
 """
