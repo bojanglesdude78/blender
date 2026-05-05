@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
 
+# hi
+
 """
 ./blender.bin --background --factory-startup --python tests/python/bl_alembic_io_test.py -- --testdir /path/to/tests/files/alembic
 """
