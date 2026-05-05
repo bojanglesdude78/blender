@@ -4,6 +4,8 @@
 
 # hello
 
+# hi
+
 """
 blender -b --factory-startup --python tests/python/bl_animation_drivers.py -- --testdir /path/to/tests/files/animation
 """
