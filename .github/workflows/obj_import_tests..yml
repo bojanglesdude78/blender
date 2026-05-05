@@ -1,4 +1,4 @@
-name: Blender CI Tests
+name: Group 5 OBJ Import Tests
 
 on:
   push:
@@ -9,34 +9,16 @@ on:
     - main
 
 jobs:
-  build-and-test:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-
+  obj-import-tests:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install dependencies (Linux only)
-      if: runner.os == 'Linux'
-      run: |
-        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-        sudo apt update
-        sudo apt install gcc-14 g++-14
-        sudo apt-get update
-        sudo apt-get install -y build-essential cmake
-        make update
+      - name: Install Blender
+        run: |
+          sudo snap install blender --classic
 
-    - name: Install dependencies (Windows only)
-      if: runner.os == 'Windows'
-      run: make update
-
-    - name: Build
-      run: make
-
-    - name: Run tests
-      run: ctest -C Release
-      
+      - name: Run OBJ Import Test Suite
+        run: |
+          blender ctest -C Release
