@@ -8,6 +8,8 @@ Tests the evaluation of NLA strips based on their properties and placement on NL
 blender -b --factory-startup --python tests/python/bl_animation_nla_strip.py
 """
 
+# hi
+
 import bpy
 import sys
 import unittest
