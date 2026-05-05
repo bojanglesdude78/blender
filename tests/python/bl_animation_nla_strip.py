@@ -10,6 +10,8 @@ blender -b --factory-startup --python tests/python/bl_animation_nla_strip.py
 
 # hi
 
+# hello!
+
 import bpy
 import sys
 import unittest
