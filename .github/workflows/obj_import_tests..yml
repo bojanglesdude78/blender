@@ -21,4 +21,9 @@ jobs:
 
       - name: Run OBJ Import Test Suite
         run: |
-          blender make test
+          blender --background --python tests/python/import_empty.py
+          blender --background --python tests/python/import_large_scales.py
+          blender --background --python tests/python/import_multi_valid.py
+          blender --background --python tests/python/import_partially_valid.py
+          blender --background --python tests/python/import_single_missing_mtl.py
+          blender --background --python tests/python/import_single_valid.py
