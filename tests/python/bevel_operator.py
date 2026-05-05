@@ -8,6 +8,8 @@
 # BLENDER_VERBOSE=1 blender path/to/bevel_regression.blend --python path/to/bevel_operator.py -- --run-test <index>
 # where <index> is the index of the test specified in the list tests.
 
+# hello
+
 import bpy
 import os
 import sys
