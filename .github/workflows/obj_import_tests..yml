@@ -21,4 +21,5 @@ jobs:
 
       - name: Run OBJ Import Test Suite
         run: |
-          ls ~/
+          cd blender
+          make test
