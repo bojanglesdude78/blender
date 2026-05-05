@@ -13,17 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install Blender
+        uses: actions/checkout@v4
+        
+      - name: Install dependencies
         run: |
-          sudo snap install blender --classic
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake git python3
 
-      - name: Run OBJ Import Test Suite
+      - name: Build Blender
         run: |
-          blender --background --python tests/python/import_empty.py
-          blender --background --python tests/python/import_large_scales.py
-          blender --background --python tests/python/import_multi_valid.py
-          blender --background --python tests/python/import_partially_valid.py
-          blender --background --python tests/python/import_single_missing_mtl.py
-          blender --background --python tests/python/import_single_valid.py
+          make update
+          make -j$(nproc)
+
+      - name: Run tests
+        run: |
+          ctest --output-on-failure
