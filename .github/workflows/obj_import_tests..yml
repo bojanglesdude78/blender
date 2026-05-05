@@ -21,4 +21,5 @@ jobs:
 
       - name: Run OBJ Import Test Suite
         run: |
-          blender ctest -C Release
+          cd ~/blender-git/build
+          make test
